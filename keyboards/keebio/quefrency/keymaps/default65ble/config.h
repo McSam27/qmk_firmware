@@ -29,12 +29,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef DESCRIPTION
 #define DESCRIPTION     65% Quefrency with BLE
 
+
 #undef MATRIX_ROW_PINS
 #undef MATRIX_COL_PINS
-#define MATRIX_ROW_PINS { D6, F4, F0, D2, D3, F1 }
-#define MATRIX_COL_PINS { B7, B6, B5, D7, C6, D0, D1, F7 }
-#undef UNUSED_PINS
-#define UNUSED_PINS {B5}
+#define MATRIX_ROW_PINS { F4, D6, D7, F1, F0, B7 }
+#define MATRIX_COL_PINS { F5, F6, F7, B1, B3, B2, B6, B5 }
 
-
-#define DIODE_DIRECTION ROW2COL

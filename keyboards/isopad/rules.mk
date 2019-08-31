@@ -70,3 +70,6 @@ SLEEP_LED_ENABLE = no    # Breathing sleep LED during USB suspend
 
 # Add OLED SD1306
 OLED_DRIVER_ENABLE = yes
+
+# Add Encoder
+ENCODER_ENABLE = yes

@@ -32,7 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS 2
 #define MATRIX_COLS 3
 
-/* 9Key PCB default pin-out */
+/* PCB default pin-out */
 #define MATRIX_ROW_PINS { B1, B3 }
 #define MATRIX_COL_PINS { E6, B5, B4 }
 #define UNUSED_PINS
@@ -41,6 +41,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define RGB_DI_PIN F7
 
 // #define RGBLED_NUM 1    // Number of LEDs
+
+/* encoder */
+#define NUMBER_OF_ENCODERS 1
+#define ENCODERS_PAD_A { D5 }
+#define ENCODERS_PAD_B { F1 }
+#define ENCODER_RESOLUTION 4
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW

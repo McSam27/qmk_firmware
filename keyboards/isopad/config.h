@@ -1,6 +1,5 @@
 /*
 Copyright 2012 Jun Wako <wakojun@gmail.com>
-Copyright 2015 Jack Humbert
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,19 +15,36 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef CONFIG_H
+#define CONFIG_H
 
 #include "config_common.h"
-#include <serial_config.h>
 
-#define USE_I2C
-#define USE_SERIAL
+/* USB Device descriptor parameter */
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x0007
+#define DEVICE_VER 		0x0001
+#define MANUFACTURER    McSam
+#define PRODUCT         isoPad
+#define DESCRIPTION     McSam isoPad
 
-#ifdef USE_Link_Time_Optimization
-  // LTO has issues with macros (action_get_macro) and "functions" (fn_actions),
-  //  so just disable them
-  #define NO_ACTION_MACRO
-  #define NO_ACTION_FUNCTION
+/* key matrix size */
+#define MATRIX_ROWS 2
+#define MATRIX_COLS 3
 
-  #define DISABLE_LEADER
-#endif // USE_Link_Time_Optimization
+/* 9Key PCB default pin-out */
+#define MATRIX_ROW_PINS { B1, B3 }
+#define MATRIX_COL_PINS { E6, B5, B4 }
+#define UNUSED_PINS
+
+/* ws2812 RGB LED */
+// #define RGB_DI_PIN F7
+
+// #define RGBLED_NUM 1    // Number of LEDs
+
+/* COL2ROW or ROW2COL */
+#define DIODE_DIRECTION COL2ROW
+
+#define TAPPING_TERM 200
+
+#endif

@@ -3,29 +3,29 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* LAYER 0
-     * ,--------------------------.
-     * |   1   |   2   |     3    |
-     * |-------+-------+----------|
-     * |   4   |   5   |   ENTR   |
-     * `--------------------------'
+     * ,-----------------------------------.
+     * |     F1    |    F2     |   MUTE    |
+     * |-----------+-----------+-----------|
+     * |    COPY   |   PASTE   |   ENTER   |
+     * | (hold L1) |    N/A    |    N/A    |
+     * `-----------------------------------'
      */
     [0] = LAYOUT(   \
-        KC_1,   KC_2,       KC_3,   \
-        KC_4,   KC_5,       KC_ENTER    \
+        KC_F1,          KC_F2,          KC_MUTE, \
+        LT(1,KC_COPY),  KC_PSTE,        KC_ENT \
     ),
 
     /* LAYER 1
-     * ,-----------------------.
-     * |  ESC  |   +   |   -   |
-     * |-------+-------+-------|
-     * |  BSPC |   *   |   /   |
-     * `-----------------------'
+     * ,------------------------------------.
+     * |    HOME   |    PGUP   |   MUTE     |
+     * |-----------+-----------+------------|
+     * |    N/A    |    PGDN   |   BSPACE   |
+     * `------------------------------------'
      */
     [1] = LAYOUT(   \
-        KC_ESC,     KC_PLUS,    KC_MINS,    \
-        KC_ENTER,   KC_ASTR,    KC_SLSH     \
+        KC_HOME,        KC_PGUP,        KC__MUTE,   \
+        KC_NO,          KC_PGDN,        KC_BSPACE   \
     )
-
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) { return true; }
@@ -60,20 +60,16 @@ void oled_task_user(void) {
 // ==============
 #ifdef ENCODER_ENABLE
 void encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) { /* First encoder */
+     /* First encoder */
+    if (index == 0) {
         if (clockwise) {
-            tap_code(KC_PGDN);
+            tap_code(KC_VOLU);
         } else {
-            tap_code(KC_PGUP);
-        }
-    } else if (index == 1) { /* Second encoder */
-        if (clockwise) {
-            tap_code(KC_UP);
-        } else {
-            tap_code(KC_DOWN);
+            tap_code(KC_VOLD);
         }
     }
 }
+
 #endif
 
 // ==============

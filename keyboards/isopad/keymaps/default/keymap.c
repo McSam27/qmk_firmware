@@ -1,18 +1,36 @@
 #include QMK_KEYBOARD_H
 
+// ==========
+// MACRO
+// ==========
+enum custom_keycodes {
+	CODE = SAFE_RANGE
+};
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+		switch (keycode) {
+            case CODE:
+                SEND_STRING("code .");
+                return false;
+		}
+    }
+	return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* LAYER 0
      * ,-----------------------------------.
      * |     F1    |    F2     |   MUTE    |
      * |-----------+-----------+-----------|
-     * |    COPY   |   PASTE   |   ENTER   |
-     * | (hold L1) |    N/A    |    N/A    |
+     * |     FN1   |   CODE    |   ENTER   |
      * `-----------------------------------'
      */
     [0] = LAYOUT(   \
         KC_F1,          KC_F2,          KC_MUTE, \
-        LT(1,KC_COPY),  KC_PSTE,        KC_ENT \
+        MO(1),          CODE,           KC_ENT \
     ),
 
     /* LAYER 1
@@ -27,8 +45,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,          KC_PGDN,        KC_BSPACE   \
     )
 };
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) { return true; }
 
 // ==============
 // START OLED
@@ -47,13 +63,11 @@ void render_logo(void) {
     oled_write_P(isopad_logo, false);
 }
 
-
 void oled_task_user(void) {
     render_logo();
 }
 
 #endif
-// ==============
 
 // ==============
 // ENCODER
@@ -71,5 +85,3 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 }
 
 #endif
-
-// ==============

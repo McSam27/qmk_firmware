@@ -127,6 +127,7 @@ void process_indicator_update(uint32_t state, uint8_t usb_led) {
     // rgblight_setrgb_many(indicators, indexes, 3);
 
     // Replace with this
+    // Docs: https://docs.qmk.fm/#/feature_rgblight?id=direct-operation
     rgblight_setrgb_at(indicators[0].r, indicators[0].g, indicators[0].b, indexes[0]);
     rgblight_setrgb_at(indicators[1].r, indicators[1].g, indicators[1].b, indexes[1]);
     rgblight_setrgb_at(indicators[2].r, indicators[2].g, indicators[2].b, indexes[2]);

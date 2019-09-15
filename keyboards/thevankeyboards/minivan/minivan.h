@@ -65,3 +65,5 @@
 }
 
 #endif
+
+void process_indicator_update(uint32_t, uint8_t);

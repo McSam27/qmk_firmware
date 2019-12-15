@@ -54,4 +54,6 @@ NKRO_ENABLE ?= yes		# USB Nkey Rollover - if this doesn't work, see here: https:
 BACKLIGHT_ENABLE ?= no  # Enable keyboard backlight functionality
 AUDIO_ENABLE ?= no
 RGBLIGHT_ENABLE ?= no
-ENCODER_ENABLE = yes	# Add encoder support
+ENCODER_ENABLE = yes	# Encoder
+OLED_DRIVER_ENABLE = yes # OLED driver
+

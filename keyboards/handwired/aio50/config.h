@@ -46,6 +46,8 @@
 /* prevent stuck modifiers */
 #define PREVENT_STUCK_MODIFIERS
 
+#define ENCODERS_PAD_A { D3 }
+#define ENCODERS_PAD_B { D2 }
 
 // #ifdef RGB_DI_PIN
 // #define RGBLIGHT_ANIMATIONS
